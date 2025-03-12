@@ -1,0 +1,126 @@
+/* 
+< = ⬅️
+> = ➡️
+- = ❌
+/ = o = ▶️
+! = !
+
+Explanation:
+- We are using CSS variables from here: https://docs.obsidian.md/Reference/CSS+variables/Components/Checkbox
+
+*/
+
+/* strikethrough */
+
+.HyperMD-task-line[data-task=">"],
+.HyperMD-task-line[data-task="<"], 
+.HyperMD-task-line[data-task="-"]
+{
+  text-decoration: var(--checklist-done-decoration);
+  color: var(--checklist-done-color);
+}
+
+/* removing the current mark */
+input[data-task=">"]:checked,
+li[data-task=">"] > input:checked,
+li[data-task=">"] > p > input:checked,
+
+input[data-task="<"]:checked,
+li[data-task="<"] > input:checked,
+li[data-task="<"] > p > input:checked,
+
+input[data-task="-"]:checked,
+li[data-task="-"] > input:checked,
+li[data-task="-"] > p > input:checked,
+
+input[data-task="/"]:checked,
+li[data-task="/"] > input:checked,
+li[data-task="/"] > p > input:checked,
+
+input[data-task="w"]:checked,
+li[data-task="w"] > input:checked,
+li[data-task="w"] > p > input:checked,
+
+input[data-task="o"]:checked,
+li[data-task="o"] > input:checked,
+li[data-task="o"] > p > input:checked 
+/* No comma after previous line */
+{
+  --checkbox-marker-color: transparent;
+  border: none;
+  background: none;
+  -webkit-mask-size: var(--checkbox-icon);
+  -webkit-mask-position: 50% 50%;
+}
+
+
+input[data-task=">"]:checked::before,
+li[data-task=">"]>input:checked::before,
+li[data-task=">"]>p>input:checked::before
+{
+  content: "➡️"; /* Add the emoji */
+  vertical-align: middle; /* Align with text */
+  display: inline-block; /* Ensure proper alignment */
+}
+
+input[data-task="<"]:checked::before,
+li[data-task="<"]>input:checked::before,
+li[data-task="<"]>p>input:checked::before
+{
+  content: "⬅️"; /* Add the emoji */
+  vertical-align: middle; /* Align with text */
+  display: inline-block; /* Ensure proper alignment */
+}
+
+input[data-task="-"]:checked::before,
+li[data-task="-"]>input:checked::before,
+li[data-task="-"]>p>input:checked::before
+{
+  content: "❌"; /* Add the forward arrow emoji */
+  vertical-align: middle; /* Align with text */
+  display: inline-block; /* Ensure proper alignment */
+}
+
+
+input[data-task="/"]:checked::before,
+li[data-task="/"]>input:checked::before,
+li[data-task="/"]>p>input:checked::before,
+input[data-task="o"]:checked::before,
+li[data-task="o"]>input:checked::before,
+li[data-task="o"]>p>input:checked::before
+{
+  content: "⚙️"; /* Add the emoji */
+  vertical-align: middle; /* Align with text */
+  display: inline-block; /* Ensure proper alignment */
+}
+
+
+input[data-task="w"]:checked::before,
+li[data-task="w"]>input:checked::before,
+li[data-task="w"]>p>input:checked::before
+{
+  content: "⏳"; /* Add the emoji */
+  vertical-align: middle; /* Align with text */
+  display: inline-block; /* Ensure proper alignment */
+}
+
+
+/* ! is a bit different */
+input[data-task="!"]:checked,
+li[data-task="!"]>input:checked,
+li[data-task="!"]>p>input:checked {
+  --checkbox-marker-color: transparent;
+    background-color: yellow;
+    text-decoration: var(--checklist-done-decoration);
+}
+input[data-task="!"]:checked::before,
+li[data-task="!"]>input:checked::before,
+li[data-task="!"]>p>input:checked::before {
+    color: var(--checkbox-color);
+    margin: 0 5px; 
+    font-weight: bold;
+    content: "!";
+    vertical-align: middle; /* Align with text */
+    display: inline-block; /* Ensure proper alignment */
+}
+
