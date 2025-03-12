@@ -21,9 +21,9 @@ Turns into:
 - ❌ ~~won't do~~
 - ➡️  ~~migrated to next day~~
 - ⬅️  ~~migrated to month log~~
-- [x] ~~done~~
 
 ## How to install
 
-Put the css file into the Obsidian vault's `.obsidian/snippets` directory. The activate in the config under "Appearance > Custom CSS".
+- (1) Put the css file into the Obsidian vault's `.obsidian/snippets` directory. The activate in the config under "Appearance > Custom CSS".
+- (2) Configure behavior statuses within the tasks module as desired.
 
